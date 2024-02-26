@@ -23,6 +23,6 @@ urlpatterns = [
 ]
 
 urlpatterns += [
-  path('app/', include('app.urls')),
-  path('', RedirectView.as_view(url='app/', permanent=True))
+    path('app/', include('app.urls')),
+    path('', RedirectView.as_view(url='app/', permanent=True))
 ]

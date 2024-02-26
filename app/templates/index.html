@@ -3,5 +3,20 @@
 {% block title %}Index{% endblock %}
 
 {% block content %}
-  <h1>Index</h1>
+    <h1>Index</h1>
+
+    {% if kittens %}
+        {% for kitten in kittens %}
+            <div class="kitten">
+                <p><strong>{{ kitten.name }}</strong></p>
+                <p>{{ kitten.age }}</p>
+                <p>{{ kitten.cuteness }}</p>
+                <p>{{ kitten.softness }}</p>
+            </div>
+        {% endfor %}
+    
+    {% else %}
+        <p>No kittens found :(</p>
+    {% endif %}
+    
 {% endblock %}
