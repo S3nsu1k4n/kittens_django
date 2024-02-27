@@ -10,3 +10,13 @@ class KittenListView(generic.ListView):
 
 class KittenDetailView(generic.DetailView):
     model = models.Kitten
+
+class KittenCreate(generic.CreateView):
+    model = models.Kitten
+
+class KittenUpdate(generic.UpdateView):
+    model = models.Kitten
+
+class KittenDelete(generic.DeleteView):
+    model = models.Kitten
+    

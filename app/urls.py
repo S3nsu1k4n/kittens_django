@@ -22,4 +22,7 @@ from . import views
 urlpatterns = [
     path('', view=views.KittenListView.as_view(), name='index'),
     path('kitten/<int:pk>', view=views.KittenDetailView.as_view(), name='kitten-detail'),
+    path('kitten/create', view=views.KittenCreate.as_view(), name='kitten-create'),
+    path('kitten/<int:pk>/update/', view=views.KittenUpdate.as_view(), name='kitten-update'),
+    path('kitten/<int:pk>/delete/', view=views.KittenDelete.as_view(), name='kitten-delete'),
 ]
