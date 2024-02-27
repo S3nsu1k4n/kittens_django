@@ -6,7 +6,7 @@ from . import models
 
 class KittenListView(generic.ListView):
     model = models.Kitten
-
+    paginate_by = 20
 
 class KittenDetailView(generic.DetailView):
     model = models.Kitten
