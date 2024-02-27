@@ -1,10 +1,11 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 
 class Kitten(models.Model):
     '''
-    Kitten Model
+    Representing a kitten
 
     Attributes
     ----------
@@ -17,3 +18,13 @@ class Kitten(models.Model):
     age = models.IntegerField('Age', help_text='Age of the kitten')
     cuteness = models.IntegerField('Cuteness', help_text='Cuteness of the kitten')
     softness = models.IntegerField('Softness', help_text='Softness of the kitten')
+
+    created_at = models.DateTimeField(auto_now_add=True, help_text='When the entry was created')
+    updated_at = models.DateTimeField(auto_now=True, help_text='When the entry was last updated')
+
+    def __str__(self) -> str:
+        return self.name
+    
+    def get_absolute_url(self):
+        return reverse('kitten-detail', args=[str(self.id)])
+    
