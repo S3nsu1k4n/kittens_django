@@ -1,0 +1,19 @@
+{% extends 'base_generic.html' %}
+
+{% block title %}Index{% endblock %}
+
+{% block content %}
+    <h1>Kittens</h1>
+
+    {% if kitten_list %}
+        <ul>
+            {% for kitten in kitten_list %}
+                <li>
+                    <a href="{{ kitten.get_absolute_url }}">{{ kitten.name }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>There are no kittens :(</p>
+    {% endif %}
+{% endblock %}

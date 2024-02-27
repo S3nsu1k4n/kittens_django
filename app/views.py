@@ -1,11 +1,12 @@
 from django.shortcuts import render
 from django.http import HttpRequest, HttpResponse
-
+from django.views import generic
 from . import models
 # Create your views here.
 
-def index(request: HttpRequest) -> HttpResponse:
-    context = {
-        'kittens': models.Kitten.objects.all(),
-    }
-    return render(request=request, template_name='index.html', context=context)
+class KittenListView(generic.ListView):
+    model = models.Kitten
+
+
+class KittenDetailView(generic.DetailView):
+    model = models.Kitten
