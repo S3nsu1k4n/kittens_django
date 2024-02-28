@@ -9,4 +9,7 @@
     <p><strong>Age:</strong>{{ kitten.age }}</p>
     <p><strong>Cuteness:</strong>{{ kitten.cuteness }}</p>
     <p><strong>Softness:</strong>{{ kitten.softness }}</p>
+
+    <a href="{% url 'kitten-update' pk=kitten.id %}">edit</a>
+    <a href="{% url 'kitten-delete' pk=kitten.id %}">delete</a>
 {% endblock %}

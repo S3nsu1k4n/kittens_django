@@ -10,10 +10,15 @@
             {% for kitten in kitten_list %}
                 <li>
                     <a href="{{ kitten.get_absolute_url }}">{{ kitten.name }}</a>
+                    <a href="{% url 'kitten-update' pk=kitten.id %}">edit</a>
+                    <a href="{% url 'kitten-delete' pk=kitten.id %}">delete</a>
                 </li>
             {% endfor %}
         </ul>
     {% else %}
         <p>There are no kittens :(</p>
     {% endif %}
+
+    <a href="{% url 'kitten-create' %}">Add new kitten</a>
+
 {% endblock %}
