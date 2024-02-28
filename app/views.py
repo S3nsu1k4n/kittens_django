@@ -1,3 +1,4 @@
+from django.http import JsonResponse
 from django.urls import reverse_lazy
 from django.views import generic
 from django.contrib import messages
@@ -10,8 +11,32 @@ class KittenListView(generic.ListView):
     queryset = models.Kitten.objects.all().order_by('pk')
     paginate_by = 20
 
+    def get(self, request, *args, **kwargs):
+        if self.request.headers.get('Accept') == 'application/json':
+            return self.get_json_response()
+        else:
+            return super().get(request, *args, **kwargs)
+
+    def get_json_response(self):
+        fields = ['name', 'age', 'cuteness', 'softness']
+        data = {
+            'kittens': list(self.get_queryset().values(*fields)),
+        }
+        return JsonResponse(data)
+
 class KittenDetailView(generic.DetailView):
     model = models.Kitten
+
+    def get(self, request, *args, **kwargs):
+        if self.request.headers.get('Accept') == 'application/json':
+            return self.get_json_response()
+        else:
+            return super().get(request, *args, **kwargs)
+
+    def get_json_response(self):
+        fields = ['name', 'age', 'cuteness', 'softness']
+        data = {field: getattr(self.get_object(), field) for field in fields}
+        return JsonResponse(data)
 
 class KittenCreate(generic.CreateView):
     model = models.Kitten
