@@ -4,6 +4,16 @@
   {{ kitten.name }}-{{ kitten.id }}
 {% endblock %}
 
+{% block messages %}
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock %}
+
 {% block content %}
     <h1>{{ kitten.name }}</h1>
     <p><strong>Age:</strong>{{ kitten.age }}</p>
