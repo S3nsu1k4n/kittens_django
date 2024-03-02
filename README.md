@@ -74,19 +74,19 @@ Testing files can be found inside management/tests/
   ## 1. Index
   <img src="./doc/images/index.png" height=450>
 
-  ## 2. Event detail
+  ## 2. Detail
   <img src="./doc/images/detail.png" height=250>
 
-  ## 3. create
+  ## 3. Create
   <img src="./doc/images/create.png" height=250>
 
-  ## 4. update
+  ## 4. Update
   <img src="./doc/images/update.png" height=250>
 
-  ## 5. delete
+  ## 5. Delete
   <img src="./doc/images/delete.png" height=250>
 
-  ## 6. admin
+  ## 6. Admin
   <img src="./doc/images/admin.png" height=450>
 
 </details>
